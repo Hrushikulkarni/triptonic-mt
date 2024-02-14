@@ -1,7 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const c = require('./controller');
+const control = require('./controller');
 
-router.get('/hello', c.hello);
+router.get('/hello', control.hello);
+router.get('/maps/restaurents', control.mresto);
+
+router.post('/maps/textsearch', control.textsearch);
+router.post('/maps/nearsearch', control.nearsearch);
 
 module.exports = router;

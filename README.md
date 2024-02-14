@@ -6,3 +6,5 @@
 
 To make server up and running
 - npm start
+
+### Create .env file in your root directory structure and add "GOOGLE_API_KEY".
