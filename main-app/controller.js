@@ -6,21 +6,18 @@ const hello = async (req, res) => {
   res.send("Hello");
 }
 
-
 // Take area, city and category of place to give out the list of places.
-const mresto = async (req, res, next) => {
+mresto = async (req, res) => {
   try {
-    const neighborhood = 'UCI'
-    const city = 'Irvine'
-    const category = 'pizza'
-    const {data} = await axios.get(
-   `https://maps.googleapis.com/maps/api/place/textsearch/json?query=${category}+${neighborhood}+${city}&type=restaurant&key=${key}`
-    )
-    res.json(data)
+    const { neighborhood, city, category } = req.body;
+      const {data} = await axios.get(
+     `https://maps.googleapis.com/maps/api/place/textsearch/json?query=${category}+${neighborhood}+${city}&type=restaurant&key=${key}`
+      )
+      res.json(data)
     }
     catch (err) {
       next(err)
-    }
+    }  
 }
 
 // Take generalised text prompt explaining requirement in a line give out the place list.
